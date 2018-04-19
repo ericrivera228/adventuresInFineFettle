@@ -1,0 +1,533 @@
+/** File for all styles that apply to the haeder (banner, title box, and nav bar**/
+
+@import "site-styles.less";
+
+@navbarHeightOriginal: 75px;
+@titleBoxHeightOriginal: 220px;
+@titleBoxLeftPositionOriginal: 25px;
+@titleBoxOriginalWidth: 490px;
+@screenSizeDecreaseModifier: 0.80;
+@navBarBorderWidth: 3px;
+@navBarFontSize: 30px;
+
+/** Banner variables **/
+@bannerHeight: 550px;
+@bannerCaptionBoxWidth: 400px;
+@bannerCaptionsBoxHeight: 141px;
+@bannerCaptionBoxPadding: 20px;
+@bannerDestinationTitleFontSizeOriginal: 165px;
+
+#titleContainerWrapper a{
+	color: inherit;
+}
+
+.blogHeader{
+	margin-bottom: 150px;
+}
+
+/** Styles for the banner **/
+.banner-wrapper{
+	position: relative;
+}
+
+
+.bannerPicture{
+	width: 100%;
+}
+
+#slickBannerCarousel{
+	height: @bannerHeight;
+	overflow: hidden;
+}
+
+#slickBannerCarousel .slick-list{
+	height: 100%;
+}
+
+#slickBannerCarousel img{
+	height: @bannerHeight;	
+}
+
+#slickBannerCarousel .slick-track{
+	padding-top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+#destinationBannerTitleWrapper{
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#destinationBannerTitle{
+
+	font-size: @bannerDestinationTitleFontSizeOriginal;
+	color: white;
+	text-align: center;
+	padding: 30px;
+
+}
+
+#bannerCaptionBox{
+	z-index: 10;
+	position: absolute;
+	width: @bannerCaptionBoxWidth;
+	right: @bannerCaptionBoxPadding;
+	bottom: @bannerCaptionBoxPadding;
+	background-color: rgba(236, 240, 241, 0.8);
+	padding: 20px;
+	border-radius: @borderRadius;
+}
+
+#bannerCaption{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+	text-align: justify;
+}
+
+#bannerCaptionBoxFooter{
+    margin-top: 10px;
+    text-align: right;
+}
+
+#bannerPostLink{
+	padding-right: 10px;
+	border-right: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+#bannerNextSlide{
+	padding-left: 10px;
+}
+
+#bannerCaptionBoxFooter a{
+  cursor: pointer; 
+  cursor: hand;	
+}
+
+
+/** Styles for title box **/
+
+#titleContainerWrapper{
+	margin-left: @titleBoxLeftPositionOriginal;
+	width: @titleBoxOriginalWidth;
+}
+
+#titleContainer{
+	color: white;
+	font-size: 110px;
+	font-family: "freestyle_script";
+	background: @primaryColor;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 25px;
+	box-shadow: 5px 5px 10px #34495e;
+	width: @titleBoxOriginalWidth;
+	height: @titleBoxHeightOriginal;
+	margin-top:  -1 - ((@titleBoxHeightOriginal - @navbarHeightOriginal) / 2);
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+
+#backgroundTitleContainer{
+	height: @titleBoxHeightOriginal;
+    position: relative;
+    margin-top: 0 - @titleBoxHeightOriginal;
+    background-color: @primaryColor;
+    width: @titleBoxOriginalWidth;
+    height: @titleBoxHeightOriginal + 1;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+#titleContainer span{
+	display: block;
+	text-align: center;
+	height: 110px;
+	position: relative;
+	top: -30px;
+}
+
+#titleTop{
+	font-size: 145px;
+}
+
+#titleBottom{
+	padding-top: 15px;
+}
+
+/** Styles for the nav bar **/
+.navbar{
+	margin:0px;
+	padding-left: 540px;
+	height: 50px;
+	font-size: 30px;
+	background-color: @secondaryColor;
+	padding-bottom: 40px;
+	color: @primaryColor;
+	border-radius: 0px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-left-style: none;
+	border-color: @primaryColor;
+	border-width: @navBarBorderWidth;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+	height: @navbarHeightOriginal;
+	margin-top: -1 - (@titleBoxHeightOriginal - ((@titleBoxHeightOriginal - @navbarHeightOriginal) / 2));
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	position: relative;
+	z-index: 1;
+}
+
+.navbar-collapse.collapse,
+.navbar-collapse.collapsing,
+.navbar-collapse.collapse.in{
+	position: relative;
+	z-index: 2;
+	padding-right: 0px;
+	margin-right: 0px;
+	width: inherit;
+}
+
+.navbar > .container-fluid{
+	margin-top: 0px;
+	height: @navbarHeightOriginal - (@navBarBorderWidth * 2);
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.container-fluid>.navbar-header{
+	margin-right: 0px;
+}
+
+.navbar-toggle{
+	position: relative;
+	right: 20px;
+	margin-right: 0px;
+}
+
+ul.nav{
+	height: @navbarHeightOriginal - (@navBarBorderWidth * 2);
+}
+
+ul.nav > li{
+	padding-right: 30px;
+	height: 100%;
+}
+
+ul.nav > li > a{
+	height: 100%;
+	padding-top: ((@navbarHeightOriginal - (@navBarBorderWidth * 2))/2) - ((@navBarFontSize - 10)/2);
+}
+
+.navbar-collapse.in{
+	height: 210px;
+}
+
+.navbar-collapse{
+	background-color: @secondaryColor;
+}
+
+@media only screen and (max-width: 2500px){
+
+	@bannerHeight: 475px;
+
+	#slickBannerCarousel{
+		height: @bannerHeight;
+	}
+
+	#slickBannerCarousel img{
+		height: @bannerHeight;
+	}
+
+}
+
+@media only screen and (max-width: 1900px){
+
+	@bannerHeight: 375px;
+
+	#slickBannerCarousel{
+		height: @bannerHeight;
+	}
+
+	#slickBannerCarousel img{
+		height: @bannerHeight;
+	}
+
+	.blogHeader{
+		margin-bottom: 125px
+	}
+
+}
+
+@titleBoxWidthSecond: 405px;
+@navbarHeightSecond: @navbarHeightOriginal  * @screenSizeDecreaseModifier;
+@titleBoxHeightSecond: @titleBoxHeightOriginal * @screenSizeDecreaseModifier;
+@titleBoxLeftPositionSecond: @titleBoxLeftPositionOriginal * @screenSizeDecreaseModifier;
+@bannerDestinationTitleFontSizeSecond: @bannerDestinationTitleFontSizeOriginal * @screenSizeDecreaseModifier;
+
+@media only screen and (max-width: 1680px){
+
+	.navbar{
+		font-size: 24px;
+		padding-left: 445px;
+		height: @navbarHeightSecond;
+		margin-top: -1 - (@titleBoxHeightSecond - ((@titleBoxHeightSecond - @navbarHeightSecond) / 2));
+	}
+
+	#destinationBannerTitle{
+		font-size: @bannerDestinationTitleFontSizeSecond;
+	}
+
+
+	#titleContainerWrapper{
+		margin-left: @titleBoxLeftPositionSecond;
+		width: @titleBoxWidthSecond;
+	}
+
+	#titleContainer{
+		font-size: 88px;
+		width: @titleBoxWidthSecond;
+		height: @titleBoxHeightSecond;
+		margin-top: -1 - ((@titleBoxHeightSecond - @navbarHeightSecond) / 2);
+	}
+
+	#backgroundTitleContainer{
+		width: @titleBoxWidthSecond;
+		height: @titleBoxHeightSecond;
+		margin-top: 0 - @titleBoxHeightSecond;
+	}
+
+	#titleTop{
+		font-size: 116px;
+	}
+
+	#titleContainer span{
+		top: -26px;
+		height: 88px;
+	}
+
+	.navbar > .container-fluid{
+		height: @navbarHeightSecond - (@navBarBorderWidth * 2);
+	}
+
+	ul.nav{
+		height: @navbarHeightSecond - (@navBarBorderWidth * 2);
+	}
+
+	ul.nav > li > a{
+		padding-top: ((@navbarHeightSecond - (@navBarBorderWidth * 2))/2) - ((@navBarFontSize - 10)/2);
+	}
+}
+
+@titleBoxWidthThird: 340px;
+@navbarHeightThird: @navbarHeightSecond  * @screenSizeDecreaseModifier + 2;				/** Need to add 2 pixels to cover rounding errors **/
+@titleBoxHeightThird: @titleBoxHeightSecond * @screenSizeDecreaseModifier;
+@titleBoxLeftPositionThird: @titleBoxLeftPositionSecond * @screenSizeDecreaseModifier;
+@bannerDestinationTitleFontSizeThird: @bannerDestinationTitleFontSizeSecond * @screenSizeDecreaseModifier;
+
+@media only screen and (max-width: 1410px){
+
+	.navbar{
+		font-size: 19px;
+		padding-left: 372px;
+		height: @navbarHeightThird;
+		margin-top: -1 - (@titleBoxHeightThird - ((@titleBoxHeightThird - @navbarHeightThird) / 2));
+	}
+
+	#destinationBannerTitle{
+		font-size: @bannerDestinationTitleFontSizeThird;
+	}
+
+
+	#titleContainerWrapper{
+		margin-left: @titleBoxLeftPositionThird;
+		width: @titleBoxWidthThird
+	}
+
+
+	#titleContainer{
+		font-size: 70px;
+		width: @titleBoxWidthThird;
+		height: @titleBoxHeightThird;
+		margin-top: -1 - ((@titleBoxHeightThird - @navbarHeightThird) / 2);;
+	}
+
+	#titleTop{
+		font-size: @bannerDestinationTitleFontSizeThird;
+	}
+
+	#backgroundTitleContainer{
+		width: @titleBoxWidthThird;
+		height: @titleBoxHeightThird;
+		margin-top: 0 - @titleBoxHeightThird;
+	}
+
+	#titleTop{
+		font-size: 92px;
+	}
+
+	#titleContainer span{
+		top: -20px;
+		height: 71px;
+	}
+
+	.navbar > .container-fluid{
+		height: @navbarHeightThird - (@navBarBorderWidth * 2);
+	}
+
+	ul.nav{
+		height: @navbarHeightThird - (@navBarBorderWidth * 2);
+	}
+
+	ul.nav > li > a{
+		padding-top: ((@navbarHeightThird - (@navBarBorderWidth * 2))/2) - ((@navBarFontSize - 10)/2);
+	}
+}
+
+@media only screen and (max-width: 1410px){
+
+	ul.nav > li{
+		padding-right: 0px;
+	}
+
+}
+
+/** From this size down, the header goes into mobile mode. **/
+@media only screen and (max-width: 1080px){
+
+	.blogHeader{
+		margin-bottom: 50px;
+	}
+
+	#backgroundTitleContainer{
+		display: none;
+	}
+
+	#titleContainerWrapper{
+		margin-left: 0px;
+		width: 100%;
+	}
+
+
+	#titleContainer{
+		width: 100%;
+		margin-top: 0px;
+		border-radius: 0px;
+		font-size: 80px;
+		height: auto;
+		position: inherit;
+	}
+
+	#titleContainer > span{
+		display: inline;
+		position: static;
+		top: 0px;
+		height: auto;
+	}
+
+	#titleTop{
+		font-size: inherit;
+	}
+
+	.navbar{
+		position: static;
+		top: 0px;
+		margin-top: 0px;
+		border-style: none;
+		padding-left: 0px;
+		box-shadow: none;
+	}
+
+	.navbar .navbar-nav {
+	    display: inline-block;
+	    float: none;
+	}
+
+	.navbar .navbar-collapse {
+	    text-align: center;
+	}
+
+	.navbar > .container-fluid{
+		height: @navbarHeightThird;
+	}
+
+	ul.nav{
+		height: @navbarHeightThird;
+	}
+
+	ul.nav > li > a{
+		padding-top: (@navbarHeightThird/2) - ((@navBarFontSize - 10)/2);
+	}
+
+
+}
+
+
+@media only screen and (max-width: 640px){
+
+	@bannerHeight: 375px;
+
+	#titleContainer{
+		font-size: 60px;
+	}
+
+	#destinationBannerTitle{
+		font-size: 80px;
+	}
+
+	#bannerCaptionBox{
+		top: 0;
+		bottom: auto;
+		right: 0;
+		width: 100%;
+		border-radius: 0px;
+		opacity: 0.8;
+	}
+
+	#bannerCaption{
+		border-bottom-color: rgba(0, 0, 0, 0.8);
+	}
+
+	#bannerCaptionBoxFooter{
+		text-align: center;
+	}
+
+	#slickBannerCarousel{
+		height: @bannerHeight;
+	}
+
+	#slickBannerCarousel img{
+		height: @bannerHeight;
+	}
+
+}
+
+@media only screen and (max-width: 505px){
+
+	#titleContainer span{
+		display: block;	
+	}
+
+	#destinationBannerTitle{
+		font-size: 60px;
+	}
+
+
+	#titleContainer > span#titleTop{
+		font-size: 80px;
+		height: 80px;
+	}
+
+
+}
+

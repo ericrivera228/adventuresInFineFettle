@@ -1,0 +1,224 @@
+@font-face {
+    font-family: "freestyle_script";
+    src: url(../fonts/freestyle_script.ttf) format("truetype");
+}
+
+body{
+	margin: 0px;
+	font-family: 'Poppins', sans-serif;
+    background: rgba(236, 240, 241,1.0);
+}
+
+/** Styles for the banner **/
+.bannerPicture{
+	min-width: 1024px;
+}
+
+#bannerCarousel{
+	z-index: -1;
+}
+
+#bannerCaptionWrapperLevel1{
+	position: absolute;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#bannerCaptionWrapperLevel2{
+	display: inline;
+	float: right;
+	width: 345px;
+	height: 100%;
+}
+
+#bannerCaption{
+	position: absolute;
+	bottom: 0;
+	background-color:rgba(236, 240, 241, 0.8);
+	padding: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	font-size: 16px;
+	border-radius: 25px;
+}
+
+#bannerImageLinks{file:///C:/Lisas%20Site/Mockup_2/img/MainPageSlides/Bora%20bora.bmp
+	text-align: right;
+    border-top-style: solid;
+    border-top-width: 1px;
+    font-size: 14px;
+    margin-top: 20px;
+    padding-top: 5px;
+}
+
+/** Styles for nav bar and title box **/
+#titleContainer{
+	color: white;
+	font-size: 110px;
+	font-family: "freestyle_script";
+	background: #6c7f89;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 25px;
+	box-shadow: 5px 5px 10px #34495e;
+	width: 490px;
+	margin-left: 20px;
+	margin-top: -73px;
+	text-align: center;
+}
+
+#titleContainer span{
+	display: block;
+	text-align: center;
+	height: 110px;
+	position: relative;
+	top: -30px;
+}
+
+#titleTop{
+	font-size: 145px;
+}
+
+#titleBottom{
+	padding-top: 15px;
+}
+
+.navbar{
+	margin:0px;
+	padding-left: 540px;
+	height: 50px;
+	font-size: 30px;
+	background-color: #A2DED0;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	color: #6c7f89;
+	border-radius: 0px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-left-style: none;
+	border-color: #6c7f89;
+	border-width: 3px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+	height: 75px;
+	margin-top: -147px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	position: relative;
+	z-index: -1;
+}
+
+.navbar > .container-fluid{
+	margin-top: -8px;	
+}
+
+ul.nav > li{
+	padding-right: 30px;
+}
+
+
+@media only screen and (max-width: 1024px){
+	#titleContainer{
+		width: 100%;
+		margin-top: 0px;
+		margin-left: 0px;
+		border-radius: 0px;
+		font-size: 80px;
+	}
+
+	#titleContainer > span{
+		display: inline;
+		position: static;
+		top: 0px;
+		height: auto;
+	}
+
+	#titleTop{
+		font-size: inherit;
+	}
+
+	#navBarWrapper{
+		position: static;
+		top: 0px;
+	}
+
+	.navBar{
+		position: static;
+		top: 0px;
+		margin-top: 0px;
+		border-style: none;
+	}
+}
+
+@media only screen and (max-width: 625px){
+	
+	#titleContainer{
+		font-size: 50px;
+	}
+
+	#titleContainer > span{
+		font-size: inherit;
+	}
+}
+
+@media only screen and (max-width: 1680px){
+
+	.navbar{
+		font-size: 24px;
+		padding-left: 445px;
+		margin-top: -104px
+	}
+
+	#titleContainer{
+		font-size: 88px;
+		width: 405px;
+		height: 176px;
+		margin-top: -72px;
+	}
+
+	#titletop{
+		font-size: 116px;
+	}
+
+	#titleContainer span{
+		top: -26px;
+		height: 88px;
+	}
+}
+
+@media only screen and (max-width: 1410px){
+
+	.navbar{
+		font-size: 19px;
+		padding-left: 372px;
+	}
+
+	#titleContainer{
+		font-size: 70px;
+		width: 340px;
+		height: 150px;
+	}
+
+	#titletop{
+		font-size: 92px;
+	}
+
+	#titleContainer span{
+		top: -26px;
+		height: 71px;
+	}
+
+	.navbar .navbar-nav {
+	    display: inline-block;
+	    float: none;
+	}
+
+	.navbar .navbar-collapse {
+	    text-align: center;
+	}
+
+}

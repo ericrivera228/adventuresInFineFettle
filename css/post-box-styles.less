@@ -1,0 +1,419 @@
+/** This file contains all styles that pertain to the vertical post boxes (on both the main and all-posts pages) and the containers they live in **/
+
+@import "site-styles.less";
+
+@spaceBetweenLatestPostBoxes: 30px;
+@verticalPostMaxWidth: 450px;
+@verticalPostMinWidth: 300px;
+@verticalPostHeight: 650px;
+@horizontalPostHeight: 350px;
+@horizontalPostPadding: 40px;
+
+.latestPostsWrapper, .allPostsWrapper{
+	font-size: 0px;		/** Setting font size to 0 here so that there is no space between the post boxes because of the whitespace in the html.**/
+	-webkit-transform: translateZ(0); /** Magic fix fore Firefox that makes CSS trransistions smooth **/
+}
+
+.verticalPostWrapper{
+	width: 33.333%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.verticalPost{
+	.container;
+	height: @verticalPostHeight;
+	display: inline-block;
+	font-size: @standardFontSize;
+	vertical-align: top;
+	text-align: left;
+	min-width: 300px;
+	margin-bottom: 40px;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	max-width: @verticalPostMaxWidth;
+	line-height: @standardLineHeight;
+}
+
+.verticalPost a{
+	-ms-box-orient: vertical;
+	display: -ms-flex;
+	height: @verticalPostHeight;
+	display: -webkit-box;   /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
+	display: -moz-flex; 
+	display: -ms-flexbox;   /* MID: IE 10 */
+	display: -webkit-flex;  /* NEW, Chrome 21+ */ 
+	display: flex;          /* NEW: Opera 12.1, Firefox 22+ */    
+	-ms-flex-direction: column; 
+	-webkit-flex-direction: column;
+	flex-direction: column; 
+ 	color: inherit;
+	width: 100%;
+	overflow: hidden;
+}
+
+/** First and 3rd post boxes **/
+.verticalPostWrapper:nth-child(3n+1) .verticalPost,
+.verticalPostWrapper:nth-child(3n) .verticalPost{
+	width: calc(~'(100% - @{spaceBetweenLatestPostBoxes})');
+}
+
+/** Post box in the middle row **/
+.verticalPostWrapper:nth-child(3n+2) .verticalPost{
+	width: 100%;
+}
+
+.verticalPost h3{
+	text-align: center;
+	line-height: 40px;
+}
+
+/** All post wrappers in the left side column **/
+.verticalPostWrapper:nth-child(3n+1){
+  text-align: left;
+}
+
+/** All post wrappers in the middle column **/
+.verticalPostWrapper:nth-child(3n+2){
+	text-align: center;
+	width: calc(~'((100% - (2 * @{spaceBetweenLatestPostBoxes}))/3)');
+	min-width: @verticalPostMinWidth;
+}
+
+/** All post wrappers in the right column **/
+.verticalPostWrapper:nth-child(3n){
+  text-align: right;
+}
+
+/** The first and third post wrappers of each row **/
+.verticalPostWrapper:nth-child(3n+1),
+.verticalPostWrapper:nth-child(3n){
+	width: calc(~'((100% - (2 * @{spaceBetweenLatestPostBoxes}))/3) + @{spaceBetweenLatestPostBoxes}');
+	min-width: calc(~'(@{spaceBetweenLatestPostBoxes} + @{verticalPostMinWidth})');
+}
+
+.verticalPost img{
+	width: 100%;
+	padding: 0px;
+	min-height: 1px;
+	border-top-right-radius: @borderRadius;
+	border-top-left-radius: @borderRadius;
+	/**IE can't calculate percentages in a flex box, so do the calculation for it **/
+	max-height: calc(~'(@{verticalPostHeight} * 0.6)');
+}
+
+.verticalPostContentWrapper{
+	padding-left: @containerPadding;
+	padding-right: @containerPadding;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    overflow: hidden;
+    height: 0;
+    min-height: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+	-webkit-transform: translateZ(0) scale(1.0, 1.0);
+	transform: translateZ(0);
+}
+
+.verticalPostContentWrapper p{
+	text-align: justify;
+	margin-bottom: 0px;
+	overflow: hidden;
+}
+
+.verticalPostContentFooter{
+	padding-left: @containerPadding;
+	padding-right: @containerPadding;
+}
+
+.verticalPostContentFooter{
+	margin-top: 20px;
+	margin-bottom: @containerPadding;
+}
+
+.verticalPostContentFooter > p{
+	text-align: right;
+}
+
+.horizontalPost{
+	.container;
+	height: @horizontalPostHeight;
+	font-size: @standardFontSize;
+	margin-bottom: @contentWrapperSeperator/2;
+}
+
+.horizontalPost h3{
+
+}
+
+.horizontalPost .flexContainer{
+	-ms-box-orient: vertical;
+	display: -ms-flex;
+	height: @horizontalPostHeight;
+	display: -webkit-box;   /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
+	display: -moz-flex; 
+	display: -ms-flexbox;   /* MID: IE 10 */
+	display: -webkit-flex;  /* NEW, Chrome 21+ */ 
+	display: flex;          /* NEW: Opera 12.1, Firefox 22+ */    
+	-ms-flex-direction: column; 
+	-webkit-flex-direction: column;
+	flex-direction: column; 
+ 	color: inherit;
+	overflow: hidden;
+}
+
+
+.horizontalPost img{
+	float: left;
+	height: @horizontalPostHeight;
+	border-bottom-left-radius: @borderRadius;
+	border-top-left-radius: @borderRadius;
+	margin-right: 20px;
+	object-fit: cover;
+	width: 40%;
+}
+
+.horizontalPostTextWrapper{
+	text-align: left;
+	padding-top: @horizontalPostPadding;
+	padding-right: @horizontalPostPadding;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    overflow: hidden;
+    height: 0;
+    min-height: 0;
+}
+
+.horizontalPostTextWrapper p{
+	line-height: @standardLineHeight;
+}
+
+.horizontalPost .singleColumn.horizontalPostTextWrapper,
+.teamMemberWrapper .horizontalPost .singleColumn.horizontalPostTextWrapper{
+	margin-left: 0px;
+	padding-left: @horizontalPostPadding;
+
+}
+
+.horizontalPostTextWrapper h3{
+	margin-top: 0px;
+	text-align: left;
+}
+
+.horizontalPostTextWrapper .clampParagraph{
+	text-align: justify;
+	margin-bottom: 0px;
+}
+
+.horizontalPostTextFooter{
+	text-align: right;
+	padding-right: @horizontalPostPadding;
+	margin-bottom: @horizontalPostPadding;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.horizontalPostTextFooter p{
+	margin-bottom: 0px;
+}
+
+.horizontalClampParagraph{
+	overflow: hidden;
+}
+
+/** Team Member horizontal posts **/
+.teamMemberWrapper .horizontalPost{
+	height: auto;
+	font-size: 0;
+}
+
+.teamMemberWrapper .horizontalPost .hacky-flexbox-fixer{
+	display: inline-block;
+    overflow: hidden;
+    width: 45%;
+    padding-right: 20px;
+}
+
+.teamMemberWrapper .horizontalPost .hacky-flexbox-fixer img{
+	width: 100%;
+	height: 100%;
+}
+
+.teamMemberWrapper .horizontalPost .flexContainer.singleColumn{
+	width: 100%;
+}
+
+.teamMemberWrapper .horizontalPost .flexContainer{
+	width: 55%;
+	font-size: @standardFontSize;
+	display: inline-block;
+	height: auto;
+}
+
+.teamMemberWrapper .horizontalPost .horizontalPostTextWrapper{
+    height: auto;
+    padding-bottom: @horizontalPostPadding;
+}
+
+.teamMemberWrapper .verticalPost .horizontalClampParagraph{
+	padding-bottom: 20px;
+}
+
+/** Screen not wide enough to hold 3 vertical post box columns; goes down to 2 columns. **/
+@media only screen and (max-width: 1616px){
+
+	@verticalPostHeight: 450px;
+	@horizontalPostHeight: 275px;
+
+	.horizontalPost{
+		height: @horizontalPostHeight;
+	}
+
+	.horizontalPost h3{
+
+	}
+
+	.horizontalPost .flexContainer{
+		height: @horizontalPostHeight;
+	}
+
+
+	.horizontalPost img{
+		height: @horizontalPostHeight;
+	}
+
+
+	.verticalPost{
+		height: @verticalPostHeight;
+	}
+
+	.verticalPost a{
+		height: @verticalPostHeight;
+	}
+
+	.verticalPost img{
+		max-height: calc(~'(@{verticalPostHeight} * 0.5)');
+	}
+
+	.verticalPost h3{
+		font-size: 24px;
+	}
+
+
+
+	/** All wrappers **/
+	.verticalPostWrapper:nth-child(1n){
+		width: 50%;
+		min-width: calc(~'(@{verticalPostMinWidth} + @{spaceBetweenLatestPostBoxes}/2)');
+	}
+
+	/** Wrappers in the left column **/
+	.verticalPostWrapper:nth-child(odd){
+		text-align: left;
+	}
+
+	/** Wrappers in the right column **/
+	.verticalPostWrapper:nth-child(even){
+		text-align: right;
+	}
+
+	.verticalPost{
+		max-width: none;
+	}
+
+	/** All vertical posts **/
+	.verticalPostWrapper .verticalPost:nth-child(1n){
+		width: calc(~'(100% - @{spaceBetweenLatestPostBoxes}/2)');
+	}
+
+	/** Special handling for the  third post on the main page; it needs to take up a whole column **/
+	.latestPostsWrapper > .verticalPostWrapper:nth-child(3){
+  		width: 100%;
+  		max-width: 100%;
+  		min-width: 100%;
+	}
+
+	.latestPostsWrapper > .verticalPostWrapper:nth-child(3) .verticalPost{
+  		width: 100%;
+  		max-width: 100%;
+	}
+
+	.latestPostsWrapper > .verticalPostWrapper:nth-child(3) .verticalPost img{
+  		max-width: 75%;
+  		border-radius: 0px;
+  		margin-top: @containerPadding;
+	}
+	
+}
+
+@media only screen and (max-width: 900px){
+
+	/*Need to explicity call the third image out, to override the logic set at the larger screen size (the block above isn't specific enough to overwrite it).**/
+	.latestPostsWrapper > .verticalPost:nth-child(3) img,
+	.latestPostsWrapper > .verticalPost img{
+  		max-width: 100%;
+  		width: 100%;
+  		border-radius: 0px;
+		border-top-right-radius: @borderRadius;
+		border-top-left-radius: @borderRadius;
+  		margin-top: 0px;
+	}
+
+}
+
+/** Screen not wide enough to hold 2 vertical post box columns; goes down to 1 columns. **/
+@media only screen and (max-width: 825px){
+
+	/**Select all wrappers **/
+	.verticalPostWrapper:nth-child(1n){
+		width: 100%;
+		text-align: center;
+	}
+
+	/** Select all post boxes **/
+	.verticalPostWrapper .verticalPost:nth-child(1n){
+		width: 100%;
+	}
+
+	/** Need to explicity call out the 3rd vertical post in the latest post section to override previous styling **/
+	.latestPostsWrapper > .verticalPostWrapper:nth-child(3) .verticalPost,
+	.verticalPost:nth-child(1n)
+	{
+		float: none;
+		max-width: none;
+		margin-right: 0px;
+	}
+
+	.latestPostsWrapper .verticalPostWrapper:nth-child(3) .verticalPost img{
+  		max-width: 100%;
+		border-top-right-radius: @borderRadius;
+		border-top-left-radius: @borderRadius;
+  		margin-top: 0px;
+	}
+
+	.verticalPost,
+	.verticalPost a{
+		height: auto;
+	}
+
+	.verticalPostContentWrapper{
+		height: auto;
+		max-height: calc(~'(@{verticalPostHeight} - 250px)');
+	}
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.hacky-flexbox-fixer{
+		min-height: 1px;
+	}
+}
+
+@supports (-ms-accelerator:true) {
+  	.hacky-flexbox-fixer{
+		min-height: 1px;
+	}
+}

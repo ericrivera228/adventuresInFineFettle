@@ -1,0 +1,66 @@
+@import "site-styles.less";
+
+.placeContentWrapper{
+	font-size: 0px;
+}
+
+.placeColumnWrapper{
+  width: 50%;
+  display: inline-flex;
+  font-size: @standardFontSize;
+  vertical-align: top;
+}
+
+.placeColumnWrapper:nth-child(1){
+	padding-right: 40px;
+}
+
+.placeColumn{
+	display: block;
+	text-align: center;
+}
+
+.placeColumn i{
+	font-size: 36px;
+}
+
+.placeColumn{
+	width: 100%;
+}
+
+.placeColumn img{
+	width: 100%;
+	height: 450px;
+	margin-bottom: 0px;
+}
+
+.placeDataGroup{
+	width: 100%;
+}
+
+.placeColumnWrapper .placeDataGroup:not(:first-child){
+	margin-top: 40px;
+}
+
+.placeInfoData{
+	display: inline-block;
+	width: initial;
+}
+ 
+.placeInfoData ul{
+	text-align: left;
+}
+
+/** Screen goes down to one column **/
+@media only screen and (max-width: 825px){
+
+.placeColumnWrapper{
+	width: 100%;
+	margin-right: 0px;
+}
+
+	.placeColumnWrapper:nth-child(2) .placeDataGroup:first-of-type{
+		margin-top: 40px;
+	}
+
+}

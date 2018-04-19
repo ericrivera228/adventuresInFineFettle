@@ -1,0 +1,105 @@
+@import "site-styles.less";
+
+.contentLink{
+	width: 100%;
+	text-align: right;
+}
+
+.highlightArrow > i{
+	color: blue;
+}
+
+.cover{
+	object-fit: cover;
+	font-family: 'object-fit: cover;'
+}
+
+
+/** Email bar styles **/
+
+.email-footer{
+ 	background-color: @secondaryColor;
+ 	position: fixed;
+ 	left: 0;
+ 	bottom: 0;
+ 	width: 100%;
+ 	z-index: 500;
+ 	border-top-style: solid;
+	border-color: @primaryColor;
+	border-width: 2px;
+	display: none;
+ }
+
+.email-footer .contentWrapper{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.email-footer button.close{
+ 	margin: 10px;
+ 	margin-right: 25px;
+ 	font-size: 32px;
+ 	position: relative;
+ 	z-index: 1000;
+ }
+
+.email-footer #mc_embed_signup{
+	clear:left; 
+	font-size: @standardFontSize;
+	color: @primaryColor;
+}
+
+.email-footer #mc_embed_signup .button:hover{
+	background-color: @primaryColor;
+}
+
+.email-footer #mc_embed_signup .button{
+	background-color: @primaryColor;
+	width: 115px;
+	height: 100%;
+	display: inline;
+	margin-right: 0px;
+	font-size: @standardFontSize;
+	text-indent: 0;
+}
+
+.email-footer #mc_embed_signup form{
+	padding: 0px;
+}
+
+.email-footer #mc_embed_signup p{
+	font-size: @standardFontSize;
+}
+
+.email-footer #mc_embed_signup .mc-field-group{
+	min-height: 0px;
+	height: 40px;
+	padding-bottom: 0px;
+	width: 100%;
+	font-size: 0;
+	display: inline-block;
+}
+
+#mc_embed_signup .mc-field-group #mce-EMAIL{
+	margin-right: 20px;
+	width: calc(~'(100% - 115px - 20px)');
+	height: 100%;
+	display: inline;
+	font-size: @standardFontSize;
+}
+
+@media only screen and (max-width: 550px){
+
+	#mc_embed_signup .mc-field-group #mce-EMAIL{
+
+		width: 100%;
+		margin-bottom: 10px;
+		display: block
+	}
+
+	.email-footer #mc_embed_signup .button{
+		width: 100%;
+		display: block;
+	}
+  
+}

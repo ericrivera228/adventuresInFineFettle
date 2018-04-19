@@ -1,0 +1,107 @@
+@import "site-styles.less";
+
+@itemBoxItemHeight: 380px;
+
+.itemBox{
+  .container;
+    margin-bottom: @contentWrapperSeperator/2;
+
+  /** Note, using @spaceBetweenContainerItems here instead of @containerPadding because to the amount of paddding on the sides is the same as the space inbetween the items in the container **/
+  padding: @spaceBetweenContainerItems;
+}
+
+.itemBox .fadeRightLine{
+  margin-bottom:  50px;
+}
+
+.itemBox h3{
+  white-space: -moz-pre-wrap; /* Firefox */    
+  white-space: -pre-wrap;     /* Opera <7 */   
+  white-space: -o-pre-wrap;   /* Opera 7 */    
+  word-wrap: break-word;      /* IE */
+}
+
+.itemBox-item{
+  vertical-align: top;
+  text-align: center;
+  font-size: 24px;
+  display: inline-block;
+  margin-right: @spaceBetweenContainerItems;
+  margin-bottom: 20px;
+  width: calc(~'(100% - (@{spaceBetweenContainerItems}*2))/3');
+}
+
+.itemBox-item:nth-child(3n){
+  margin-right: 0px;
+}
+
+.itemBox-item img{
+  width: 100%;
+  height: @itemBoxItemHeight;
+  margin-bottom: 30px;
+}
+
+.itemBox-item p{
+  display: block;
+}
+
+.itemBox-items{
+  width: 100%;
+  font-size: 0px;
+}
+
+.itemBox-items.oneColumnBox .itemBox-item{
+  width: 100%;
+}
+
+.itemBox-items.oneColumnBox .itemBox-item:nth-child(1n){
+  margin-right: 0px;
+}
+
+.itemBox-items.twoColumnBox .itemBox-item{
+  width: calc(~'(100% - @{spaceBetweenContainerItems})/2');
+}
+
+.itemBox-items.twoColumnBox .itemBox-item:nth-child(2n){
+  margin-right: 0px;
+}
+
+/** Screen goes down to two columns **/
+@media only screen and (max-width: 1616px){
+
+  @itemBoxItemHeight: 250px;
+
+  .itemBox-item img{
+    width: 100%;
+    height: @itemBoxItemHeight;
+    margin-bottom: 30px;
+  }
+
+  .itemBox-item{
+    width: calc(~'(100% - @{spaceBetweenContainerItems})/2');
+    margin-right: @spaceBetweenContainerItems;
+  }
+
+  .itemBox-item:nth-child(2n){
+    margin-right: 0px;
+  }
+
+  .itemBox-item:nth-child(odd){
+    margin-right: @spaceBetweenContainerItems;
+  }
+
+  .itemBox-item{
+    font-size: 18px;
+  }
+  
+}
+
+/** Screen goes down to one column **/
+@media only screen and (max-width: 825px){
+
+  .itemBox-items .itemBox-item:nth-child(1n){
+    width: 100%;
+    margin-right: 0px;
+  }
+
+}

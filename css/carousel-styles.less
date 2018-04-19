@@ -1,0 +1,279 @@
+@import "site-styles.less";
+
+@carouselArrowFontSize: 28px;
+@carouselArrowWidth: 20px;
+@carouselColumnHeight: 380px;
+@carouselBackgrounColor: white;
+
+.carouselContainer{
+  .container;
+  width: 100%;
+  padding-left: 0px;
+  padding-top: @containerPadding;
+  padding-bottom: @containerPadding;
+  background-color: @carouselBackgrounColor;
+  margin-bottom: @contentWrapperSeperator/2;
+  font-size: 0px; /** Setting font size to 0 here so that there is no space between the columns because of the whitespace in the html.**/
+}
+
+.carouselContainer > h3{
+  margin-bottom: 20px;
+  margin-left:  @spaceBetweenContainerItems;
+  white-space: -moz-pre-wrap; /* Firefox */    
+  white-space: -pre-wrap;     /* Opera <7 */   
+  white-space: -o-pre-wrap;   /* Opera 7 */    
+  word-wrap: break-word;      /* IE */
+}
+
+.slick-track{
+  padding-top: 10px;
+}
+
+.carouselColumnsWrapper{
+  display: inline-flex;
+  position: relative;
+  width: 100%;
+}
+
+.carouselWrapperNoArrows{
+  width: calc(~'(100% - (@{spaceBetweenContainerItems} * 1))');
+  margin-left: @spaceBetweenContainerItems
+}
+
+.carouselWrapperArrows{
+
+  /** Carousel wrapper starts at the end edge of the left arrow column, which includes the column spacing margin. And ends the very left of the right arrow column.**/ 
+  width: calc(~'(100% - (@{carouselArrowWidth} * 2) - (@{spaceBetweenContainerItems} * 3))');
+
+}
+
+.carouselArrowColumn{
+  font-size: @carouselArrowFontSize;
+  width: @carouselArrowWidth;
+  height: 100%;
+  padding-left: @spaceBetweenContainerItems;
+  padding-right: @carouselArrowWidth + @spaceBetweenContainerItems; /* Need to include arrow width to emulate margin-right behavior */
+  margin-right: 0px;
+  vertical-align: top;
+  cursor: pointer; 
+  cursor: hand;
+  background-color: @carouselBackgrounColor;
+}
+
+.carouselArrowColumn.carouselButtonNext{
+  position: relative;
+  right: @spaceBetweenContainerItems;;
+  z-index: 100;
+  padding-left: @spaceBetweenContainerItems;
+  padding-right: @carouselArrowWidth + @spaceBetweenContainerItems;
+}
+
+.carouselArrowColumn i{
+  line-height: @carouselColumnHeight;
+}
+
+.carouselColumn{
+  height: @carouselColumnHeight;
+  display: block;
+  vertical-align: top;
+  text-align: center;
+  margin-right: @spaceBetweenContainerItems;
+  font-size: 24px;
+}
+
+.carouselColumn p{
+  display: block;
+}
+
+.carouselColumn.slick-slide{
+  height: 100%;
+}
+
+.carouselColumn img{
+  height: @carouselColumnHeight * 0.8;
+  margin-bottom: 20px;
+  width: 100%;
+  
+}
+
+/** Single Image Carousel **/
+.slick-single-image-carousel-wrapper{
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+}
+
+.slick-single-image-carousel-wrapper .slick-track{
+  padding-top: 0px;
+}
+
+.singleImagecarouselArrowColumn{
+  font-size: @carouselArrowFontSize;
+  width: auto;
+  height: @carouselColumnHeight;
+  padding-left: 10px;
+  padding-right:10px;
+  vertical-align: top;
+  z-index: 200;
+  opacity: 0.7;
+  color: white;
+  cursor: pointer; 
+  cursor: hand;
+  background-color: transparent;
+  position: absolute;
+}
+
+.carouselButtonNext i,
+.carouselButtonPrevious i{
+  position: relative;
+  top: 47%;
+}
+
+.slick-single-image-carousel-wrapper .carouselButtonNext:hover,
+.slick-single-image-carousel-wrapper .carouselButtonPrevious:hover{
+  opacity: 1;
+}
+
+.slick-single-image-carousel-wrapper .carouselButtonPrevious{
+  .singleImagecarouselArrowColumn;
+}
+
+.slick-single-image-carousel-wrapper .carouselButtonNext{
+  .singleImagecarouselArrowColumn;
+  right: 0;
+}
+
+.slick-single-image-carousel-wrapper .slick-single-image-carousel{
+  width: 100%;
+}
+
+.slick-single-image-carousel-wrapper .carouselColumn{
+  margin-right: 0px;
+}
+
+.slick-single-image-carousel{
+  width: 100%;
+}
+
+.slick-single-image-carousel img{
+  height: 100%;
+}
+
+.slick-single-image-carousel .slick-dots{
+  bottom: 5px;
+}
+
+.slick-single-image-carousel .slick-dots li.slick-active button:before{
+  opacity: 1.0;
+  color: white;
+  height: 100%;
+}
+
+.slick-single-image-carousel .slick-dots button:before{
+  color: white;
+  opacity: 0.7;
+  font-size: 50px;
+}
+
+.slick-single-image-carousel .expand-overlay{
+  height: inherit;
+  position: absolute;
+  width: inherit;
+  z-index: 300;
+  color: white;
+  opacity: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.slick-single-image-carousel .expand-overlay:hover{
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.slick-single-image-carousel .expand-overlay i{
+  position: relative;
+  top: 45%;
+}
+
+/** Screen goes down to two columns **/
+@media only screen and (max-width: 1616px){
+
+  @carouselColumnHeight: 250px;
+
+  .carouselArrowColumn i{
+    line-height: @carouselColumnHeight;
+  }
+
+  .carouselColumn{
+    height: @carouselColumnHeight;
+  }
+
+  .carouselColumn img{
+    height: @carouselColumnHeight * 0.8;
+    margin-bottom: 20px;
+    width: 100%;
+    
+  }
+
+  .singleImagecarouselArrowColumn{
+    height: @carouselColumnHeight;
+  }
+
+  .carouselWrapperArrows{
+
+    /** Carousel wrapper starts at the end edge of the left arrow column, which includes the column spacing margin. And ends the very left of the right arrow column.**/ 
+    width: calc(~'(100% - (@{carouselArrowWidth} * 2) - (@{spaceBetweenContainerItems} * 3))');
+
+  }
+  
+}
+
+/** Screen goes down to one column **/
+@media only screen and (max-width: 825px){
+
+  @spaceBetweenCarouselItems: 10px;
+
+  .carouselContainer > h3{
+    margin-bottom: 20px;
+    margin-left:  @spaceBetweenCarouselItems;
+  }
+
+  .carouselWrapperNoArrows{
+    width: calc(~'(100% - (@{spaceBetweenCarouselItems} * 1))');
+    margin-left: @spaceBetweenCarouselItems;
+  }
+
+  .carouselArrowColumn{
+    padding-left: @spaceBetweenCarouselItems;
+    padding-right: @carouselArrowWidth + @spaceBetweenCarouselItems; /* Need to include arrow width to emulate margin-right behavior */
+  }
+
+  .carouselArrowColumn.carouselButtonNext{
+    right: @spaceBetweenCarouselItems;
+  }
+
+
+  .carouselArrowColumn.carouselButtonNext{
+    padding-left: @spaceBetweenCarouselItems;
+    padding-right: @carouselArrowWidth + @spaceBetweenCarouselItems;
+  }
+
+  .carouselColumn{
+    margin-right: @spaceBetweenCarouselItems;
+  }
+
+  .carouselWrapperArrows{
+
+    /** Carousel wrapper starts at the end edge of the left arrow column, which includes the column spacing margin. And ends the very left of the right arrow column.**/ 
+    width: calc(~'(100% - (@{carouselArrowWidth} * 2) - (@{spaceBetweenCarouselItems} * 3))');
+
+  }
+
+}
