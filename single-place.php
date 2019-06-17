@@ -57,7 +57,7 @@
 
 								$galleryImages = get_field("image_gallery", get_the_ID());
 
-								if(count($galleryImages) > 0){
+								if(is_array($galleryImages) && count($galleryImages) > 0){
 									include( locate_template( '/web_library/web_components/singleImageCarousel.php', false, false ) );
 								}
 
